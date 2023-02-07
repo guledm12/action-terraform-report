@@ -104776,7 +104776,7 @@ function report (data) {
   data.body = `
 ### ${data.header}
 ---
-##### Plan: \`${1}\` to add, \`${1}\` to change, \`${1}\` to destroy
+##### Plan: \`${summary.create}\` to add, \`${summary.update}\` to change, \`${summary.delete}\` to destroy
 `;
 
   if (data.showPlan === 'true') {
