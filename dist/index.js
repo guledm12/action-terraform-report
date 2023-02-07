@@ -104772,7 +104772,7 @@ function report (data) {
   } = github$1.context;
   const headerText = customHeader;
   data.header = headerText;
-  data.footer = `Action Run: [\`#${runId}\`](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n Commit: ${sha}`;
+  data.footer = `Action Run: [\`#${runId}\`](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) from commit: ${sha}`;
   data.body = `
 ### ${data.header}
 ---
@@ -104793,12 +104793,13 @@ ${textContent}
 
   if (data.showDiff === 'true') {
     const diff = patches.map(patch => `\`\`\`diff\n${patch}\n\`\`\``).join('\n\n');
-    data.body += `<details><summary>Show Diff</summary>
-
-${diff}
-</details>
-`;
+    data.body += `<details><summary>Show Diff</summary> ${diff}`;
   }
+  if (diff == null){
+	data.body += `<p>No differences made</p>`
+  }
+  data.body += `</details>`
+ 
 
   data.body += `
 ---
