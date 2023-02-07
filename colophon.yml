@@ -5,4 +5,4 @@ id: action-terraform-report
 about:
   title: "GitHub Action: Terraform Pull Request Report Generator"
   description: Updates Pull Requests with visual diff of Terraform Plan changes
-  repository: ahmadnassri/action-terraform-report
+  repository: guledm12/action-terraform-report
