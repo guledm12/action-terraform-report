@@ -104772,7 +104772,7 @@ function report (data) {
   } = github$1.context;
   const headerText = customHeader;
   data.header = headerText;
-  data.footer = `Action Run: [\`#${runId}\`](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n Commit: ${sha}`;
+  data.footer = `Action Run: [\`#${runId}\`](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n Commit: ${sha} \n NOTE: This is an automatically generated comment.`;
   data.body = `
 ### ${data.header}
 ---
