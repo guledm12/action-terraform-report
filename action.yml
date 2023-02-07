@@ -36,7 +36,7 @@ inputs:
 
   custom-header:
     description: The header text for the github comment
-    #default: ":robot: Terraform Pull Request Reporter :robot: :robot:"
+    default: ":robot: Terraform Pull Request Reporter :robot:"
     required: false
 
 runs:
