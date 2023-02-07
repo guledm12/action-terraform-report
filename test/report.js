@@ -24,7 +24,7 @@ test('context', async assert => {
       patches: ['foo'],
       summary: { create: 0, update: 1, delete: 0 }
     },
-    customHeader: ':robot: *Terraform Report* - This is a custom header'
+    customHeader: ':robot: *Terraform Report* - This is a custom header!!'
   }
 
   report(data)
