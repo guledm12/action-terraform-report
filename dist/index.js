@@ -104793,12 +104793,12 @@ ${textContent}
 
   if (data.showDiff === 'true') {
     const diff = patches.map(patch => `\`\`\`diff\n${patch}\n\`\`\``).join('\n\n');
-    data.body += `<details><summary>Show Diff</summary> ${diff}`;
+    data.body += `<details><summary>Show Diff</summary> ${diff} </details>`;
   }
-  if (patches.map(patch => `\`\`\`diff\n${patch}\n\`\`\``).join('\n\n') == undefined || null || ""){
-	data.body += `<p>No differences made</p>`
-  }
-  data.body += `</details>`
+//   if (patches.map(patch => `\`\`\`diff\n${patch}\n\`\`\``).join('\n\n') == undefined || null || ""){
+// 	data.body += `<p>No differences made</p>`
+//   }
+//   data.body += `</details>`
  
 
   data.body += `
