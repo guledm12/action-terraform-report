@@ -104795,7 +104795,7 @@ ${textContent}
     const diff = patches.map(patch => `\`\`\`diff\n${patch}\n\`\`\``).join('\n\n');
     data.body += `<details><summary>Show Diff</summary> ${diff}`;
   }
-  if (diff == null){
+  if (diff == null || ""){
 	data.body += `<p>No differences made</p>`
   }
   data.body += `</details>`
