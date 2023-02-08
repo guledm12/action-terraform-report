@@ -104780,7 +104780,7 @@ function report (data) {
 `;
 
   if (summary.create == summary.update == summary.delete == 0){
-	data.body += `Your Terraform Infrastructure is up to date!`
+	data.body += `\n Your Terraform Infrastructure is up to date!`
   }
 
   if (data.showPlan === 'true') {
