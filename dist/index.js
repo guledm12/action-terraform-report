@@ -104772,7 +104772,7 @@ function report (data) {
   } = github$1.context;
   const headerText = customHeader
   data.header = headerText;
-  data.footer = `Action: [\`#${runId}\`](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n Commit: ${sha}`;
+  data.footer = `Action: [Click here to view action run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n Commit: ${sha}`;
   data.body = `
 ### ${data.header}
 ---
