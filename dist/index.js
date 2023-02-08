@@ -104773,38 +104773,24 @@ function report (data) {
   const headerText = customHeader;
   data.header = headerText;
   data.footer = `Action Run: [\`#${runId}\`](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) - Commit: ${sha}`;
-  data.body = `
-### ${data.header}
----
-##### Plan: \`${summary.create}\` to add, \`${summary.update}\` to change, \`${summary.delete}\` to destroy
-`;
+  data.body = `### ${data.header} --- ##### Plan: \`${summary.create}\` to add, \`${summary.update}\` to change, \`${summary.delete}\` to destroy`;
 
   if (data.showPlan === 'true') {
-    data.body += `
-<details><summary>Show Plan</summary>
-
-\`\`\`terraform
-${textContent}
-\`\`\`
-</details>
-
-`;
+	data.body += `<details><summary>Show Plan</summary>
+    \`\`\`terraform ${textContent} \`\`\` </details>`;
   }
 
   if (data.showDiff === 'true') {
     const diff = patches.map(patch => `\`\`\`diff\n${patch}\n\`\`\``).join('\n\n');
-    data.body += `<details><summary>Show Diff</summary>
-
-${diff}
-</details>
-`;
+    data.body += `<details><summary>Show Diff</summary> ${diff} </details>`;
   }
 
   data.body += `
----
-> ${data.footer}
-`;
+  ---
+  > ${data.footer}
+  `;
 }
+// test comment
 
 async function post ({
   token,
