@@ -104776,11 +104776,12 @@ function report (data) {
   data.body = `
 ### ${data.header}
 ---
+##### Run #${runId}
 ##### Plan: \`${summary.create}\` to add, \`${summary.update}\` to change, \`${summary.delete}\` to destroy
 `;
 
   if (summary.create == summary.update == summary.delete == 0){
-	data.body += `\n Your Terraform Infrastructure is up to date!`
+	data.body += `\n #### Your Terraform Infrastructure is up to date!`
   } else {
 
   if (data.showPlan === 'true') {
