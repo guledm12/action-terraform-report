@@ -104770,11 +104770,13 @@ function report (data) {
     repo,
     sha
   } = github$1.context;
-  const headerText = customHeader + ` - Run #${runId}`
+  const headerText = customHeader
   data.header = headerText;
   data.footer = `[Click to view action run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n [Click to view commit](https://github.com/${repo.owner}/${repo.repo}/commit/${sha})`;
   data.body = `
 ### ${data.header}
+---
+##### - Run #${runId}
 ---
 ##### Plan: \`${summary.create}\` to add, \`${summary.update}\` to change, \`${summary.delete}\` to destroy
 `;
