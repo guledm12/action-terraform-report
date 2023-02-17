@@ -38,6 +38,10 @@ inputs:
     description: The header text for the github comment
     default: ":robot: Terraform Pull Request Reporter :robot:"
     required: false
+  
+  layer-name:
+    description: Name of the layer that the action is running against
+    required: true
 
 runs:
   using: node16
