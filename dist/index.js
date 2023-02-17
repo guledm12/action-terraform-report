@@ -87217,14 +87217,14 @@ var github$1 = /*@__PURE__*/getDefaultExportFromCjs(github);
 function context () {
   // parse inputs
   const inputs = {
+	layerName: core$3.getInput('layer-name'),
     token: core$3.getInput('github-token'),
     showDiff: core$3.getInput('show-diff'),
     showPlan: core$3.getInput('show-plan'),
     textPath: core$3.getInput('terraform-text'),
     jsonPath: core$3.getInput('terraform-json'),
     removeStaleReports: core$3.getInput('remove-stale-reports'),
-    customHeader: core$3.getInput('custom-header'),
-	layerName: core$3.getInput('layer-name')
+    customHeader: core$3.getInput('custom-header')
   }; // extract relevant variables
 
   const {
@@ -104771,6 +104771,8 @@ function report (data) {
     repo,
     sha
   } = github$1.context;
+  
+  const layerName = core$3.getInput('layer-name')
   const headerText = customHeader + " - " + layerName
   data.header = headerText;
   data.footer = `[Click to view action run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n [Click to view commit](https://github.com/${repo.owner}/${repo.repo}/commit/${sha})`;
