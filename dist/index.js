@@ -104773,7 +104773,7 @@ function report (data) {
   } = github$1.context;
   
   const layerName = core$3.getInput('layer-name')
-  const headerText = customHeader + " - " + layerName
+  const headerText = customHeader + " - " + layerName.replace('./layers/','');
   data.header = headerText;
   data.footer = `[Click to view action run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n [Click to view commit](https://github.com/${repo.owner}/${repo.repo}/commit/${sha})`;
   data.body = `
@@ -104783,7 +104783,7 @@ function report (data) {
 ##### Plan: \`${summary.create}\` to add, \`${summary.update}\` to change, \`${summary.delete}\` to destroy
 `;
 
-  if (summary.create == summary.update == summary.delete == 0){
+  if (summary.create == 0 && summary.update == 0 && summary.delete == 0){
 	data.body += `\n #### Your Terraform Infrastructure is up to date!`
   } else {
 
