@@ -87223,7 +87223,8 @@ function context () {
     textPath: core$3.getInput('terraform-text'),
     jsonPath: core$3.getInput('terraform-json'),
     removeStaleReports: core$3.getInput('remove-stale-reports'),
-    customHeader: core$3.getInput('custom-header')
+    customHeader: core$3.getInput('custom-header'),
+	layerName: core$3.getInput('layer-name')
   }; // extract relevant variables
 
   const {
@@ -104770,7 +104771,7 @@ function report (data) {
     repo,
     sha
   } = github$1.context;
-  const headerText = customHeader
+  const headerText = customHeader + " - " + layerName
   data.header = headerText;
   data.footer = `[Click to view action run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n [Click to view commit](https://github.com/${repo.owner}/${repo.repo}/commit/${sha})`;
   data.body = `
