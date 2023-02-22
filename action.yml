@@ -42,6 +42,14 @@ inputs:
   layer-name:
     description: Name of the layer that the action is running against
     required: true
+  
+  tenant-name:
+    description: Name of the tenant that the action is running against
+    required: false
+  
+  location-name:
+    description: Name of the location
+    required: false
 
 runs:
   using: node16
