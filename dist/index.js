@@ -104778,7 +104778,7 @@ function report (data) {
   const tenantName = core$3.getInput('tenant-name');
   const locationName = core$3.getInput('location-name');
 
-  const headerText = customHeader + " - " + layerName.replace('./layers/','');
+  const headerText = customHeader + " - " + layerName//.replace('./layers/','');
   data.header = headerText;
   data.footer = `[Click to view action run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n [Click to view commit](https://github.com/${repo.owner}/${repo.repo}/commit/${sha})`;
   data.body = `
