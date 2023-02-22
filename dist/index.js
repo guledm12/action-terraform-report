@@ -104773,13 +104773,20 @@ function report (data) {
   } = github$1.context;
   
   const backendConfig = core$3.getInput('backend-config');
+  const tenant = backendConfig.split("config/")[1].split("/")[0];
+  const location = backendConfig.split("config/")[1].split("/")[1];
+  const layer = backendConfig.split("config/")[1].split("/")[3].split(".config")[0];
 
-  const headerText = customHeader + " - " + backendConfig
+  const headerText = customHeader + " - " + backendConfig 
   data.header = headerText;
   data.footer = `[Click to view action run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n [Click to view commit](https://github.com/${repo.owner}/${repo.repo}/commit/${sha})`;
   data.body = `
 ### ${data.header}
-##### Run #${runId}
+#### Run #${runId}
+##### Tenant: ${tenant}
+##### Location: ${location}
+##### Tenant: ${location}
+
 ---
 ##### Plan: \`${summary.create}\` to add, \`${summary.update}\` to change, \`${summary.delete}\` to destroy
 `;
