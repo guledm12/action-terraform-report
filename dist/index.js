@@ -87217,9 +87217,7 @@ var github$1 = /*@__PURE__*/getDefaultExportFromCjs(github);
 function context () {
   // parse inputs
   const inputs = {
-	layerName: core$3.getInput('layer-name'),
-	tenantName: core$3.getInput('tenant-name'),
-	locationName: core$3.getInput('location-name'),
+	backendConfig: core$3.getInput('backend-config'),
     token: core$3.getInput('github-token'),
     showDiff: core$3.getInput('show-diff'),
     showPlan: core$3.getInput('show-plan'),
@@ -104774,11 +104772,9 @@ function report (data) {
     sha
   } = github$1.context;
   
-  const layerName = core$3.getInput('layer-name');
-  const tenantName = core$3.getInput('tenant-name');
-  const locationName = core$3.getInput('location-name');
+  const backendConfig = core$3.getInput('backend-config');
 
-  const headerText = customHeader + " - " + layerName.replace('../','');
+  const headerText = customHeader + " - " + backendConfig
   data.header = headerText;
   data.footer = `[Click to view action run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n [Click to view commit](https://github.com/${repo.owner}/${repo.repo}/commit/${sha})`;
   data.body = `
