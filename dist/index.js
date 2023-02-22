@@ -104777,7 +104777,7 @@ function report (data) {
   const location = backendConfig.split("config/")[1].split("/")[1];
   const layer = backendConfig.split("config/")[1].split("/")[3].split(".config")[0];
 
-  const headerText = customHeader + " - " + backendConfig 
+  const headerText = customHeader
   data.header = headerText;
   data.footer = `[Click to view action run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId}) \n [Click to view commit](https://github.com/${repo.owner}/${repo.repo}/commit/${sha})`;
   data.body = `
@@ -104785,7 +104785,7 @@ function report (data) {
 #### Run #${runId}
 ##### Tenant: ${tenant}
 ##### Location: ${location}
-##### Tenant: ${location}
+##### Layer: ${layer}
 
 ---
 ##### Plan: \`${summary.create}\` to add, \`${summary.update}\` to change, \`${summary.delete}\` to destroy
