@@ -104771,11 +104771,15 @@ function report (data) {
     repo,
     sha
   } = github$1.context;
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   
   const backendConfig = core$3.getInput('backend-config');
-  const tenant = backendConfig.split("config/")[1].split("/")[0];
+  const tenant = backendConfig.split("config/")[1].split("/")[0].toUpperCase();
   const location = backendConfig.split("config/")[1].split("/")[1];
-  const layer = backendConfig.split("config/")[1].split("/")[3].split(".config")[0];
+  const layer = capitalizeFirstLetter(backendConfig.split("config/")[1].split("/")[3].split(".config")[0]);
 
   const headerText = customHeader
   data.header = headerText;
