@@ -39,17 +39,9 @@ inputs:
     default: ":robot: Terraform Pull Request Reporter :robot:"
     required: false
   
-  layer-name:
-    description: Name of the layer that the action is running against
+  backend-config:
+    description: Name of the target backend configuration used for the Terraform Init
     required: true
-  
-  tenant-name:
-    description: Name of the tenant that the action is running against
-    required: false
-  
-  location-name:
-    description: Name of the location
-    required: false
 
 runs:
   using: node16
